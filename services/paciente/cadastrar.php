@@ -16,11 +16,12 @@ $paciente = new Paciente($db);
 $data = json_decode(file_get_contents('php://input'));
 
 $paciente->nome=$data->nome;
+$paciente->cpf=$data->cpf;
+$paciente->datanasc=$data->datanasc;
 $paciente->email=$data->email;
 $paciente->sexo=$data->sexo;
-$paciente->telefone=$data->telefone;
-$paciente->datanascimento=$data->datanascimento;
-$paciente->usuario=$data->usuario;
+$paciente->celular=$data->celular;
+$paciente->nomemae=$data->nomemae;
 $paciente->senha=$data->senha;
 
 if($paciente->cadastro()){

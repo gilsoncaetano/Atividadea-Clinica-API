@@ -16,7 +16,7 @@ $paciente = new Paciente($db);
 $resultado = $paciente->listar();
 
 if($resultado->rowCount()>0){
-    $paciente_arr["dados"] = array();
+    $paciente_arr["saida"] = array();
 
     while($linha = $resultado->fetch(PDO::FETCH_ASSOC)){
 
@@ -25,14 +25,22 @@ if($resultado->rowCount()>0){
         $array_item=array(
             "idpaciente"=>$idpaciente,
             "nome"=>$nome,
+            "cpf"=>$cpf,
+            "datanasc"=>$datanasc,
             "email"=>$email,
             "sexo"=>$sexo,
-            "telefone"=>$telefone,
-            "datanascimento"=>$datanascimento,
-            "usuario"=>$usuario, 
+            "celular"=>$celular,
+            "nomemae"=>$nomemae,
+
+            "tipo"=>$tipo,
+            "logradouro"=>$logradouro,
+            "numero"=>$numero,
+            "complemento"=>$complemento,
+            "bairro"=>$bairro,
+            "cep"=>$cep
 
         );
-        array_push($paciente_arr["dados"],$array_item);
+        array_push($paciente_arr["saida"],$array_item);
     }
     header("HTTP/1.0 200");
     echo json_encode($paciente_arr);
